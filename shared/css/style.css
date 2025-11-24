@@ -852,32 +852,3 @@ input[type="color"]::-moz-color-swatch {
     grid-template-columns: 1fr;
   }
 }
-
-/* Output Elements Min-Height */
-.code-output,
-.live-preview-box,
-.preview-panel pre {
-  min-height: 300px;
-}
-
-/* CodeMirror Overrides */
-.CodeMirror {
-  height: auto;
-  min-height: 300px;
-  font-family: 'Consolas', 'Monaco', monospace;
-  font-size: 0.95rem;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-}
-
-.CodeMirror-focused {
-  border-color: var(--primary);
-}
-
-.CodeMirror-scroll {
-  min-height: 300px;
-}
-
-.output span {
-  font-size: 14px;
-}
