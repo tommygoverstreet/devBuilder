@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHP Component Creator - DevBuilder</title>
+  <link rel="stylesheet" href="../../shared/css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <nav class="sidebar">
+      <a href="../../index.html" class="logo">
+        <i class="fas fa-code"></i> DevBuilder </a>
+      <ul class="nav-links">
+        <li><a href="../php-builder/index.html" class="active"><i class="fab fa-php"></i> PHP Components</a></li>
+        <li><a href="../sql-builder/index.html"><i class="fas fa-database"></i> SQL Builder</a></li>
+        <li><a href="../js-builder/index.html"><i class="fab fa-js"></i> JS Builder</a></li>
+        <li><a href="../html-builder/index.html"><i class="fab fa-html5"></i> HTML Builder</a></li>
+        <li><a href="../css-builder/index.html"><i class="fab fa-css3-alt"></i> CSS Builder</a></li>
+        <li><a href="../json-builder/index.html"><i class="fas fa-code-branch"></i> JSON Builder</a></li>
+        <li><a href="../react-builder/index.html"><i class="fab fa-react"></i> React Builder</a></li>
+        <li><a href="../markdown-builder/index.html"><i class="fab fa-markdown"></i> Markdown Builder</a></li>
+        <li><a href="../http-builder/index.html"><i class="fas fa-globe"></i> HTTP Request</a></li>
+        <li><a href="../mermaid-builder/index.html"><i class="fas fa-project-diagram"></i> Mermaid Builder</a></li>
+        <li><a href="../layout-builder/index.html"><i class="fas fa-th-large"></i> Layout Builder</a></li>
+        <li><a href="../ui-blocks-builder/index.html"><i class="fas fa-cubes"></i> UI Blocks</a></li>
+      </ul>
+    </nav>
+    <main class="main-content">
+      <section id="php-builder" class="active">
+        <header>
+          <h1>PHP Component Creator</h1>
+          <p>Generate standardized PHP classes and functions instantly.</p>
+          <div class="header-actions">
+            <button class="btn-secondary" onclick="openCheatsheet('php')"><i class="fas fa-book"></i>
+              Cheatsheet</button>
+            <button class="btn-secondary" onclick="openSnippetsModal()"><i class="fas fa-save"></i> Snippets</button>
+          </div>
+        </header>
+        <div class="workspace">
+          <div class="config-panel">
+            <div class="form-group">
+              <label>Component Name</label>
+              <input type="text" id="php-name" placeholder="e.g., UserController">
+            </div>
+            <div class="form-group">
+              <label>Type</label>
+              <select id="php-type">
+                <option value="class">Class</option>
+                <option value="interface">Interface</option>
+                <option value="trait">Trait</option>
+                <option value="pdo">PDO Connection</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Namespace</label>
+              <input type="text" id="php-namespace" placeholder="App\Controllers">
+            </div>
+            <div class="form-group">
+              <label>Properties (comma separated)</label>
+              <input type="text" id="php-props" placeholder="private $db, public $user">
+            </div>
+            <div class="form-group">
+              <label>Methods (comma separated)</label>
+              <input type="text" id="php-methods" placeholder="index, show, store">
+            </div>
+            <button class="btn-primary" onclick="generatePHP()">Generate Code</button>
+          </div>
+          <div class="preview-panel">
+            <div class="code-header">
+              <span>PHP Output</span>
+              <button class="btn-icon" onclick="copyToClipboard('php-output')"><i class="far fa-copy"></i></button>
+            </div>
+            <textarea id="php-output" class="code-output" spellcheck="false">// Your code will appear here...</textarea>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <!-- Cheatsheet Modal -->
+  <div id="cheatsheet-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="cheatsheet-title">Cheatsheet</h2>
+        <span class="close-modal" onclick="closeCheatsheet()">&times;</span>
+      </div>
+      <div class="modal-body" id="cheatsheet-body"></div>
+    </div>
+  </div>
+  <script src="../../shared/js/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

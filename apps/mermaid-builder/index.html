@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mermaid Builder - DevBuilder</title>
+  <link rel="stylesheet" href="../../shared/css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Mermaid Library -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</head>
+
+<body>
+  <div class="app-container">
+    <nav class="sidebar">
+      <a href="../../index.html" class="logo">
+        <i class="fas fa-code"></i> DevBuilder </a>
+      <ul class="nav-links">
+        <li><a href="../php-builder/index.html"><i class="fab fa-php"></i> PHP Components</a></li>
+        <li><a href="../sql-builder/index.html"><i class="fas fa-database"></i> SQL Builder</a></li>
+        <li><a href="../js-builder/index.html"><i class="fab fa-js"></i> JS Builder</a></li>
+        <li><a href="../html-builder/index.html"><i class="fab fa-html5"></i> HTML Builder</a></li>
+        <li><a href="../css-builder/index.html"><i class="fab fa-css3-alt"></i> CSS Builder</a></li>
+        <li><a href="../json-builder/index.html"><i class="fas fa-code-branch"></i> JSON Builder</a></li>
+        <li><a href="../react-builder/index.html"><i class="fab fa-react"></i> React Builder</a></li>
+        <li><a href="../markdown-builder/index.html"><i class="fab fa-markdown"></i> Markdown Builder</a></li>
+        <li><a href="../http-builder/index.html"><i class="fas fa-globe"></i> HTTP Request</a></li>
+        <li><a href="../mermaid-builder/index.html" class="active"><i class="fas fa-project-diagram"></i> Mermaid
+            Builder</a></li>
+        <li><a href="../layout-builder/index.html"><i class="fas fa-th-large"></i> Layout Builder</a></li>
+        <li><a href="../ui-blocks-builder/index.html"><i class="fas fa-cubes"></i> UI Blocks</a></li>
+      </ul>
+    </nav>
+    <main class="main-content">
+      <section id="mermaid-builder" class="active">
+        <header>
+          <h1>Mermaid Diagram Builder</h1>
+          <p>Create diagrams and charts using text.</p>
+          <div class="header-actions">
+            <button class="btn-secondary" onclick="openCheatsheet('mermaid')"><i class="fas fa-book"></i>
+              Cheatsheet</button>
+            <button class="btn-secondary" onclick="openSnippetsModal()"><i class="fas fa-save"></i> Snippets</button>
+            <button class="btn-primary" onclick="downloadSVG()"><i class="fas fa-download"></i> Download SVG</button>
+          </div>
+        </header>
+        <div class="workspace split-view">
+          <div class="editor-pane">
+            <div class="toolbar">
+              <select id="mermaid-template" onchange="loadMermaidTemplate()">
+                <option value="">Load Template...</option>
+                <option value="flowchart">Flowchart</option>
+                <option value="sequence">Sequence Diagram</option>
+                <option value="class">Class Diagram</option>
+                <option value="state">State Diagram</option>
+                <option value="gantt">Gantt Chart</option>
+                <option value="pie">Pie Chart</option>
+              </select>
+            </div>
+            <textarea id="mermaid-input" class="code-editor" placeholder="graph TD; A-->B;"
+              oninput="updateMermaidPreview()"></textarea>
+          </div>
+          <div class="preview-pane">
+            <div class="code-header"><span>Diagram Preview</span></div>
+            <div id="mermaid-preview" class="mermaid-output"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <!-- Cheatsheet Modal -->
+  <div id="cheatsheet-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="cheatsheet-title">Cheatsheet</h2>
+        <span class="close-modal" onclick="closeCheatsheet()">&times;</span>
+      </div>
+      <div class="modal-body" id="cheatsheet-body"></div>
+    </div>
+  </div>
+  <script src="../../shared/js/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout Builder - DevBuilder</title>
+  <link rel="stylesheet" href="../../shared/css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <nav class="sidebar">
+      <a href="../../index.html" class="logo">
+        <i class="fas fa-code"></i> DevBuilder </a>
+      <ul class="nav-links">
+        <li><a href="../php-builder/index.html"><i class="fab fa-php"></i> PHP Components</a></li>
+        <li><a href="../sql-builder/index.html"><i class="fas fa-database"></i> SQL Builder</a></li>
+        <li><a href="../js-builder/index.html"><i class="fab fa-js"></i> JS Builder</a></li>
+        <li><a href="../html-builder/index.html"><i class="fab fa-html5"></i> HTML Builder</a></li>
+        <li><a href="../css-builder/index.html"><i class="fab fa-css3-alt"></i> CSS Builder</a></li>
+        <li><a href="../json-builder/index.html"><i class="fas fa-code-branch"></i> JSON Builder</a></li>
+        <li><a href="../react-builder/index.html"><i class="fab fa-react"></i> React Builder</a></li>
+        <li><a href="../markdown-builder/index.html"><i class="fab fa-markdown"></i> Markdown Builder</a></li>
+        <li><a href="../http-builder/index.html"><i class="fas fa-globe"></i> HTTP Request</a></li>
+        <li><a href="../mermaid-builder/index.html"><i class="fas fa-project-diagram"></i> Mermaid Builder</a></li>
+        <li><a href="../layout-builder/index.html" class="active"><i class="fas fa-th-large"></i> Layout Builder</a>
+        </li>
+        <li><a href="../ui-blocks-builder/index.html"><i class="fas fa-cubes"></i> UI Blocks</a></li>
+      </ul>
+    </nav>
+    <main class="main-content">
+      <section id="layout-builder" class="active">
+        <header>
+          <h1>Layout Generator</h1>
+          <p>Visually design CSS Grid and Flexbox layouts.</p>
+          <div class="header-actions">
+            <button class="btn-secondary" onclick="openCheatsheet('layout')"><i class="fas fa-book"></i>
+              Cheatsheet</button>
+            <button class="btn-secondary" onclick="openSnippetsModal()"><i class="fas fa-save"></i> Snippets</button>
+          </div>
+        </header>
+        <div class="tabs" style="margin-bottom: 20px;">
+          <button class="tab-btn active" onclick="switchLayoutMode('grid')">CSS Grid</button>
+          <button class="tab-btn" onclick="switchLayoutMode('flex')">Flexbox</button>
+        </div>
+        <div class="workspace">
+          <div class="config-panel">
+            <!-- Grid Controls -->
+            <div id="grid-controls">
+              <h3>Grid Settings</h3>
+              <div class="form-group">
+                <label>Columns</label>
+                <input type="number" id="grid-cols" value="3" min="1" max="12" oninput="updateLayout()">
+              </div>
+              <div class="form-group">
+                <label>Rows</label>
+                <input type="number" id="grid-rows" value="3" min="1" max="12" oninput="updateLayout()">
+              </div>
+              <div class="form-group">
+                <label>Gap (px)</label>
+                <input type="range" id="grid-gap" value="10" min="0" max="50" oninput="updateLayout()">
+              </div>
+              <div class="form-group">
+                <label>Justify Items</label>
+                <select id="grid-justify-items" onchange="updateLayout()">
+                  <option value="stretch">stretch</option>
+                  <option value="start">start</option>
+                  <option value="end">end</option>
+                  <option value="center">center</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Align Items</label>
+                <select id="grid-align-items" onchange="updateLayout()">
+                  <option value="stretch">stretch</option>
+                  <option value="start">start</option>
+                  <option value="end">end</option>
+                  <option value="center">center</option>
+                </select>
+              </div>
+            </div>
+            <!-- Flex Controls -->
+            <div id="flex-controls" style="display: none;">
+              <h3>Flexbox Settings</h3>
+              <div class="form-group">
+                <label>Direction</label>
+                <select id="flex-direction" onchange="updateLayout()">
+                  <option value="row">row</option>
+                  <option value="row-reverse">row-reverse</option>
+                  <option value="column">column</option>
+                  <option value="column-reverse">column-reverse</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Wrap</label>
+                <select id="flex-wrap" onchange="updateLayout()">
+                  <option value="nowrap">nowrap</option>
+                  <option value="wrap">wrap</option>
+                  <option value="wrap-reverse">wrap-reverse</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Justify Content</label>
+                <select id="flex-justify" onchange="updateLayout()">
+                  <option value="flex-start">flex-start</option>
+                  <option value="flex-end">flex-end</option>
+                  <option value="center">center</option>
+                  <option value="space-between">space-between</option>
+                  <option value="space-around">space-around</option>
+                  <option value="space-evenly">space-evenly</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Align Items</label>
+                <select id="flex-align" onchange="updateLayout()">
+                  <option value="stretch">stretch</option>
+                  <option value="flex-start">flex-start</option>
+                  <option value="flex-end">flex-end</option>
+                  <option value="center">center</option>
+                  <option value="baseline">baseline</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Align Content</label>
+                <select id="flex-align-content" onchange="updateLayout()">
+                  <option value="stretch">stretch</option>
+                  <option value="flex-start">flex-start</option>
+                  <option value="flex-end">flex-end</option>
+                  <option value="center">center</option>
+                  <option value="space-between">space-between</option>
+                  <option value="space-around">space-around</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Gap (px)</label>
+                <input type="range" id="flex-gap" value="10" min="0" max="50" oninput="updateLayout()">
+              </div>
+              <div class="form-group">
+                <label>Item Count</label>
+                <input type="number" id="flex-items" value="5" min="1" max="20" oninput="updateLayout()">
+              </div>
+            </div>
+          </div>
+          <div class="preview-panel">
+            <div class="code-header">
+              <span>CSS Output</span>
+              <button class="btn-icon" onclick="copyToClipboard('layout-output')"><i class="far fa-copy"></i></button>
+            </div>
+            <textarea id="layout-output" class="code-output" spellcheck="false"></textarea>
+            <div class="live-preview-container">
+              <div class="code-header"><span>Visual Preview</span></div>
+              <div id="layout-preview" class="layout-preview-box"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="../../shared/js/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

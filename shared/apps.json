@@ -1,0 +1,98 @@
+[
+  {
+    "id": "php-builder",
+    "name": "PHP Components",
+    "icon": "fab fa-php",
+    "description": "Generate secure PHP classes and scripts."
+  },
+  {
+    "id": "sql-builder",
+    "name": "SQL Builder",
+    "icon": "fas fa-database",
+    "description": "Visual SQL query generator."
+  },
+  {
+    "id": "js-builder",
+    "name": "JS Builder",
+    "icon": "fab fa-js",
+    "description": "Modern JavaScript snippets and functions."
+  },
+  {
+    "id": "html-builder",
+    "name": "HTML Builder",
+    "icon": "fab fa-html5",
+    "description": "Semantic HTML structure generator."
+  },
+  {
+    "id": "css-builder",
+    "name": "CSS Builder",
+    "icon": "fab fa-css3-alt",
+    "description": "Visual CSS style generator."
+  },
+  {
+    "id": "json-builder",
+    "name": "JSON Builder",
+    "icon": "fas fa-code-branch",
+    "description": "Format, minify, and validate JSON."
+  },
+  {
+    "id": "react-builder",
+    "name": "React Builder",
+    "icon": "fab fa-react",
+    "description": "Scaffold React components with hooks."
+  },
+  {
+    "id": "markdown-builder",
+    "name": "Markdown Builder",
+    "icon": "fab fa-markdown",
+    "description": "Real-time Markdown preview."
+  },
+  {
+    "id": "http-builder",
+    "name": "HTTP Request",
+    "icon": "fas fa-globe",
+    "description": "Test API endpoints and requests."
+  },
+  {
+    "id": "mermaid-builder",
+    "name": "Mermaid Builder",
+    "icon": "fas fa-project-diagram",
+    "description": "Diagrams as code generator."
+  },
+  {
+    "id": "layout-builder",
+    "name": "Layout Builder",
+    "icon": "fas fa-th-large",
+    "description": "CSS Grid layout generator."
+  },
+  {
+    "id": "ui-blocks-builder",
+    "name": "UI Blocks",
+    "icon": "fas fa-cubes",
+    "description": "Ready-to-use UI components."
+  },
+  {
+    "id": "swift-builder",
+    "name": "Swift Builder",
+    "icon": "fab fa-swift",
+    "description": "Generate iOS app code & views."
+  },
+  {
+    "id": "head-builder",
+    "name": "Head Builder",
+    "icon": "fas fa-tags",
+    "description": "Generate SEO meta tags, CDNs, and analytics."
+  },
+  {
+    "id": "color-palette-builder",
+    "name": "Color Palette",
+    "icon": "fas fa-palette",
+    "description": "Create harmonious color schemes and export to CSS."
+  },
+  {
+    "id": "site-builder",
+    "name": "Site Generator",
+    "icon": "fas fa-layer-group",
+    "description": "Assemble full HTML pages from pre-built sections."
+  }
+]

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Builder - DevBuilder</title>
+  <link rel="stylesheet" href="../../shared/css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <nav class="sidebar">
+      <a href="../../index.html" class="logo">
+        <i class="fas fa-code"></i> DevBuilder </a>
+      <ul class="nav-links">
+        <li><a href="../php-builder/index.html"><i class="fab fa-php"></i> PHP Components</a></li>
+        <li><a href="../sql-builder/index.html"><i class="fas fa-database"></i> SQL Builder</a></li>
+        <li><a href="../js-builder/index.html"><i class="fab fa-js"></i> JS Builder</a></li>
+        <li><a href="../html-builder/index.html"><i class="fab fa-html5"></i> HTML Builder</a></li>
+        <li><a href="../css-builder/index.html" class="active"><i class="fab fa-css3-alt"></i> CSS Builder</a></li>
+        <li><a href="../json-builder/index.html"><i class="fas fa-code-branch"></i> JSON Builder</a></li>
+        <li><a href="../react-builder/index.html"><i class="fab fa-react"></i> React Builder</a></li>
+        <li><a href="../markdown-builder/index.html"><i class="fab fa-markdown"></i> Markdown Builder</a></li>
+        <li><a href="../http-builder/index.html"><i class="fas fa-globe"></i> HTTP Request</a></li>
+        <li><a href="../mermaid-builder/index.html"><i class="fas fa-project-diagram"></i> Mermaid Builder</a></li>
+        <li><a href="../layout-builder/index.html"><i class="fas fa-th-large"></i> Layout Builder</a></li>
+        <li><a href="../ui-blocks-builder/index.html"><i class="fas fa-cubes"></i> UI Blocks</a></li>
+      </ul>
+    </nav>
+    <main class="main-content">
+      <section id="css-builder" class="active">
+        <header>
+          <h1>CSS Builder</h1>
+          <p>Visual CSS generator.</p>
+          <div class="header-actions">
+            <button class="btn-secondary" onclick="openCheatsheet('css')"><i class="fas fa-book"></i>
+              Cheatsheet</button>
+            <button class="btn-secondary" onclick="openSnippetsModal()"><i class="fas fa-save"></i> Snippets</button>
+          </div>
+        </header>
+        <div class="workspace">
+          <div class="config-panel">
+            <div class="form-group">
+              <label>Selector</label>
+              <input type="text" id="css-selector" value=".my-element" oninput="updateCSS()">
+            </div>
+            <div class="form-group">
+              <label>Background Color</label>
+              <input type="color" id="css-bg" value="#3498db" oninput="updateCSS()">
+            </div>
+            <div class="form-group">
+              <label>Text Color</label>
+              <input type="color" id="css-color" value="#ffffff" oninput="updateCSS()">
+            </div>
+            <div class="form-group">
+              <label>Font Size (px)</label>
+              <input type="range" id="css-fontsize" min="10" max="50" value="16" oninput="updateCSS()">
+              <span id="css-fontsize-val">16px</span>
+            </div>
+            <div class="form-group">
+              <label>Padding (px)</label>
+              <input type="range" id="css-padding" min="0" max="50" value="10" oninput="updateCSS()">
+              <span id="css-padding-val">10px</span>
+            </div>
+            <div class="form-group">
+              <label>Border Radius (px)</label>
+              <input type="range" id="css-radius" min="0" max="50" value="4" oninput="updateCSS()">
+              <span id="css-radius-val">4px</span>
+            </div>
+            <div class="form-group">
+              <label>Display</label>
+              <select id="css-display" onchange="updateCSS()">
+                <option value="block">block</option>
+                <option value="flex">flex</option>
+                <option value="grid">grid</option>
+                <option value="inline-block">inline-block</option>
+              </select>
+            </div>
+            <div class="form-group" id="css-flex-opts" style="display:none;">
+              <label>Justify Content</label>
+              <select id="css-justify" onchange="updateCSS()">
+                <option value="flex-start">flex-start</option>
+                <option value="center">center</option>
+                <option value="space-between">space-between</option>
+              </select>
+            </div>
+          </div>
+          <div class="preview-panel">
+            <div class="code-header">
+              <span>CSS Output</span>
+              <button class="btn-icon" onclick="copyToClipboard('css-output')"><i class="far fa-copy"></i></button>
+            </div>
+            <textarea id="css-output" class="code-output" spellcheck="false"></textarea>
+            <div class="live-preview-container">
+              <div class="code-header"><span>Live Preview</span></div>
+              <div class="live-preview-box center-content">
+                <div id="css-preview-box">Preview Element</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <!-- Cheatsheet Modal -->
+  <div id="cheatsheet-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="cheatsheet-title">Cheatsheet</h2>
+        <span class="close-modal" onclick="closeCheatsheet()">&times;</span>
+      </div>
+      <div class="modal-body" id="cheatsheet-body"></div>
+    </div>
+  </div>
+  <script src="../../shared/js/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

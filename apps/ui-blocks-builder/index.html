@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Blocks - DevBuilder</title>
+  <link rel="stylesheet" href="../../shared/css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <nav class="sidebar">
+      <a href="../../index.html" class="logo">
+        <i class="fas fa-code"></i> DevBuilder </a>
+      <ul class="nav-links">
+        <li><a href="../php-builder/index.html"><i class="fab fa-php"></i> PHP Components</a></li>
+        <li><a href="../sql-builder/index.html"><i class="fas fa-database"></i> SQL Builder</a></li>
+        <li><a href="../js-builder/index.html"><i class="fab fa-js"></i> JS Builder</a></li>
+        <li><a href="../html-builder/index.html"><i class="fab fa-html5"></i> HTML Builder</a></li>
+        <li><a href="../css-builder/index.html"><i class="fab fa-css3-alt"></i> CSS Builder</a></li>
+        <li><a href="../json-builder/index.html"><i class="fas fa-code-branch"></i> JSON Builder</a></li>
+        <li><a href="../react-builder/index.html"><i class="fab fa-react"></i> React Builder</a></li>
+        <li><a href="../markdown-builder/index.html"><i class="fab fa-markdown"></i> Markdown Builder</a></li>
+        <li><a href="../http-builder/index.html"><i class="fas fa-globe"></i> HTTP Request</a></li>
+        <li><a href="../mermaid-builder/index.html"><i class="fas fa-project-diagram"></i> Mermaid Builder</a></li>
+        <li><a href="../layout-builder/index.html"><i class="fas fa-th-large"></i> Layout Builder</a></li>
+        <li><a href="../ui-blocks-builder/index.html" class="active"><i class="fas fa-cubes"></i> UI Blocks</a></li>
+      </ul>
+    </nav>
+    <main class="main-content">
+      <section id="ui-blocks-builder" class="active">
+        <header>
+          <h1>UI Blocks Library</h1>
+          <p>Ready-to-use HTML/CSS components.</p>
+          <div class="header-actions">
+            <select id="framework-select" onchange="updateFramework()">
+              <option value="css">Plain CSS</option>
+              <option value="bootstrap">Bootstrap 5</option>
+              <option value="tailwind">Tailwind CSS</option>
+            </select>
+            <button class="btn-secondary" onclick="openCheatsheet('ui-blocks')"><i class="fas fa-book"></i>
+              Cheatsheet</button>
+            <button class="btn-secondary" onclick="openSnippetsModal()"><i class="fas fa-save"></i> Snippets</button>
+          </div>
+        </header>
+        <div class="workspace">
+          <div class="blocks-grid">
+            <!-- Card Block -->
+            <div class="ui-block-card">
+              <div class="block-preview">
+                <div class="card-demo">
+                  <h3>Card Title</h3>
+                  <p>Some quick example text to build on the card title.</p>
+                  <button>Go somewhere</button>
+                </div>
+              </div>
+              <div class="block-actions">
+                <span>Card Component</span>
+                <button class="btn-sm" onclick="copyBlock('card')">Copy Code</button>
+              </div>
+            </div>
+            <!-- Navbar Block -->
+            <div class="ui-block-card">
+              <div class="block-preview">
+                <nav class="nav-demo">
+                  <span>Brand</span>
+                  <div>
+                    <a href="#">Home</a>
+                    <a href="#">Link</a>
+                  </div>
+                </nav>
+              </div>
+              <div class="block-actions">
+                <span>Navbar</span>
+                <button class="btn-sm" onclick="copyBlock('navbar')">Copy Code</button>
+              </div>
+            </div>
+            <!-- Alert Block -->
+            <div class="ui-block-card">
+              <div class="block-preview">
+                <div class="alert-demo">
+                  <strong>Heads up!</strong> This is an alert box.
+                </div>
+              </div>
+              <div class="block-actions">
+                <span>Alert Box</span>
+                <button class="btn-sm" onclick="copyBlock('alert')">Copy Code</button>
+              </div>
+            </div>
+            <!-- Button Group -->
+            <div class="ui-block-card">
+              <div class="block-preview">
+                <div class="btn-group-demo">
+                  <button>Left</button>
+                  <button>Middle</button>
+                  <button>Right</button>
+                </div>
+              </div>
+              <div class="block-actions">
+                <span>Button Group</span>
+                <button class="btn-sm" onclick="copyBlock('btn-group')">Copy Code</button>
+              </div>
+            </div>
+            <!-- Input Group -->
+            <div class="ui-block-card">
+              <div class="block-preview">
+                <div class="input-demo">
+                  <label>Email Address</label>
+                  <input type="text" placeholder="name@example.com">
+                </div>
+              </div>
+              <div class="block-actions">
+                <span>Input Group</span>
+                <button class="btn-sm" onclick="copyBlock('input-group')">Copy Code</button>
+              </div>
+            </div>
+            <!-- Hero Section -->
+            <div class="ui-block-card">
+              <div class="block-preview">
+                <div class="hero-demo">
+                  <h4>Welcome</h4>
+                  <button>Get Started</button>
+                </div>
+              </div>
+              <div class="block-actions">
+                <span>Hero Section</span>
+                <button class="btn-sm" onclick="copyBlock('hero')">Copy Code</button>
+              </div>
+            </div>
+            <!-- Features Section -->
+            <div class="ui-block-card">
+              <div class="block-preview">
+                <div class="features-demo">
+                  <div><span>⚡</span></div>
+                  <div><span>🔒</span></div>
+                  <div><span>📱</span></div>
+                </div>
+              </div>
+              <div class="block-actions">
+                <span>Features Grid</span>
+                <button class="btn-sm" onclick="copyBlock('features')">Copy Code</button>
+              </div>
+            </div>
+            <!-- Pricing Table -->
+            <div class="ui-block-card">
+              <div class="block-preview">
+                <div class="pricing-demo">
+                  <div class="p-card">Basic</div>
+                  <div class="p-card active">Pro</div>
+                  <div class="p-card">Ent</div>
+                </div>
+              </div>
+              <div class="block-actions">
+                <span>Pricing Table</span>
+                <button class="btn-sm" onclick="copyBlock('pricing')">Copy Code</button>
+              </div>
+            </div>
+            <!-- Contact Form -->
+            <div class="ui-block-card">
+              <div class="block-preview">
+                <div class="contact-demo">
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <button>Send</button>
+                </div>
+              </div>
+              <div class="block-actions">
+                <span>Contact Form</span>
+                <button class="btn-sm" onclick="copyBlock('contact')">Copy Code</button>
+              </div>
+            </div>
+            <!-- Footer -->
+            <div class="ui-block-card">
+              <div class="block-preview">
+                <div class="footer-demo">
+                  <div class="f-row"></div>
+                  <div class="f-copy">© 2025</div>
+                </div>
+              </div>
+              <div class="block-actions">
+                <span>Footer</span>
+                <button class="btn-sm" onclick="copyBlock('footer')">Copy Code</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <!-- Cheatsheet Modal -->
+  <div id="cheatsheet-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="cheatsheet-title">Cheatsheet</h2>
+        <span class="close-modal" onclick="closeCheatsheet()">&times;</span>
+      </div>
+      <div class="modal-body" id="cheatsheet-body"></div>
+    </div>
+  </div>
+  <script src="../../shared/js/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

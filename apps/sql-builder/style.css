@@ -1,0 +1,9 @@
+.condition-builder {
+  display: flex;
+  gap: 10px;
+}
+
+.condition-builder input,
+.condition-builder select {
+  flex: 1;
+}

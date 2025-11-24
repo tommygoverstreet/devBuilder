@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Head Builder - DevBuilder</title>
+  <link rel="stylesheet" href="../../shared/css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <nav class="sidebar">
+      <a href="../../index.html" class="logo">
+        <i class="fas fa-code"></i> DevBuilder </a>
+      <ul class="nav-links">
+        <!-- Links will be populated by utils.js -->
+      </ul>
+    </nav>
+    <main class="main-content">
+      <section id="head-builder" class="active">
+        <header>
+          <h1>Head Generator</h1>
+          <p>Generate comprehensive &lt;head&gt; tags for SEO, Social Media, and Integrations.</p>
+          <div class="header-actions">
+            <button class="btn-secondary" onclick="openCheatsheet('head')"><i class="fas fa-book"></i>
+              Cheatsheet</button>
+            <button class="btn-secondary" onclick="openSnippetsModal()"><i class="fas fa-save"></i> Snippets</button>
+          </div>
+        </header>
+        <div class="workspace">
+          <div class="config-panel">
+            <!-- Basic SEO -->
+            <h3>Basic SEO</h3>
+            <div class="form-group">
+              <label>Page Title</label>
+              <input type="text" id="seo-title" placeholder="My Awesome Website" oninput="updateHead()">
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <textarea id="seo-description" rows="3" placeholder="A brief description of your site..."
+                oninput="updateHead()"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Keywords (comma separated)</label>
+              <input type="text" id="seo-keywords" placeholder="web, dev, builder" oninput="updateHead()">
+            </div>
+            <div class="form-group">
+              <label>Author</label>
+              <input type="text" id="seo-author" placeholder="John Doe" oninput="updateHead()">
+            </div>
+            <div class="form-group">
+              <label>Theme Color</label>
+              <input type="color" id="seo-theme-color" value="#ffffff" oninput="updateHead()">
+            </div>
+            <!-- Robots -->
+            <h3>Robots & Indexing</h3>
+            <div class="form-group">
+              <div class="radio-group">
+                <label><input type="radio" name="robots-index" value="index" checked onchange="updateHead()">
+                  Index</label>
+                <label><input type="radio" name="robots-index" value="noindex" onchange="updateHead()"> NoIndex</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="radio-group">
+                <label><input type="radio" name="robots-follow" value="follow" checked onchange="updateHead()">
+                  Follow</label>
+                <label><input type="radio" name="robots-follow" value="nofollow" onchange="updateHead()">
+                  NoFollow</label>
+              </div>
+            </div>
+            <!-- Open Graph -->
+            <h3>Open Graph (Facebook/LinkedIn)</h3>
+            <div class="form-group">
+              <label>OG Title</label>
+              <input type="text" id="og-title" placeholder="Same as page title" oninput="updateHead()">
+            </div>
+            <div class="form-group">
+              <label>OG Description</label>
+              <textarea id="og-description" rows="2" placeholder="Same as page description"
+                oninput="updateHead()"></textarea>
+            </div>
+            <div class="form-group">
+              <label>OG Image URL</label>
+              <input type="text" id="og-image" placeholder="https://example.com/image.jpg" oninput="updateHead()">
+            </div>
+            <div class="form-group">
+              <label>OG URL</label>
+              <input type="text" id="og-url" placeholder="https://example.com/page" oninput="updateHead()">
+            </div>
+            <!-- Twitter Card -->
+            <h3>Twitter Card</h3>
+            <div class="form-group">
+              <label>Card Type</label>
+              <select id="twitter-card" onchange="updateHead()">
+                <option value="summary">Summary</option>
+                <option value="summary_large_image">Summary Large Image</option>
+                <option value="app">App</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Twitter Site (@username)</label>
+              <input type="text" id="twitter-site" placeholder="@username" oninput="updateHead()">
+            </div>
+            <!-- CDNs -->
+            <h3>Libraries & CDNs</h3>
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="cdn-bootstrap" onchange="updateHead()"> Bootstrap 5 (CSS + JS)</label>
+              <label><input type="checkbox" id="cdn-tailwind" onchange="updateHead()"> Tailwind CSS</label>
+              <label><input type="checkbox" id="cdn-fontawesome" onchange="updateHead()"> FontAwesome 6</label>
+              <label><input type="checkbox" id="cdn-jquery" onchange="updateHead()"> jQuery 3.6</label>
+              <label><input type="checkbox" id="cdn-react" onchange="updateHead()"> React + ReactDOM</label>
+              <label><input type="checkbox" id="cdn-vue" onchange="updateHead()"> Vue 3</label>
+              <label><input type="checkbox" id="cdn-axios" onchange="updateHead()"> Axios</label>
+              <label><input type="checkbox" id="cdn-lodash" onchange="updateHead()"> Lodash</label>
+            </div>
+            <!-- Integrations -->
+            <h3>Integrations</h3>
+            <div class="form-group">
+              <label>Google Analytics ID (G-XXXXXXXXXX)</label>
+              <input type="text" id="ga-id" placeholder="G-..." oninput="updateHead()">
+            </div>
+            <div class="form-group">
+              <label>Firebase Config (JSON Object)</label>
+              <textarea id="firebase-config" rows="4" placeholder='{"apiKey": "...", "authDomain": "..."}'
+                oninput="updateHead()"></textarea>
+            </div>
+          </div>
+          <div class="preview-panel">
+            <div class="code-header">
+              <span>Generated &lt;head&gt; Content</span>
+              <button class="btn-icon" onclick="copyToClipboard('head-output')"><i class="far fa-copy"></i></button>
+            </div>
+            <textarea id="head-output" class="code-output" spellcheck="false"></textarea>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="../../shared/js/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

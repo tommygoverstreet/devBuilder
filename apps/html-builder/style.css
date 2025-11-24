@@ -1,0 +1,14 @@
+/* HTML Builder Specific Styles */
+.live-preview-container {
+  margin-top: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.live-preview-box {
+  padding: 1rem;
+  background: #fff;
+  color: #000;
+  min-height: 100px;
+}

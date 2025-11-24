@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Builder - DevBuilder</title>
+  <link rel="stylesheet" href="../../shared/css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <nav class="sidebar">
+      <a href="../../index.html" class="logo">
+        <i class="fas fa-code"></i> DevBuilder </a>
+      <ul class="nav-links">
+        <li><a href="../php-builder/index.html"><i class="fab fa-php"></i> PHP Components</a></li>
+        <li><a href="../sql-builder/index.html"><i class="fas fa-database"></i> SQL Builder</a></li>
+        <li><a href="../js-builder/index.html"><i class="fab fa-js"></i> JS Builder</a></li>
+        <li><a href="../html-builder/index.html" class="active"><i class="fab fa-html5"></i> HTML Builder</a></li>
+        <li><a href="../css-builder/index.html"><i class="fab fa-css3-alt"></i> CSS Builder</a></li>
+        <li><a href="../json-builder/index.html"><i class="fas fa-code-branch"></i> JSON Builder</a></li>
+        <li><a href="../react-builder/index.html"><i class="fab fa-react"></i> React Builder</a></li>
+        <li><a href="../markdown-builder/index.html"><i class="fab fa-markdown"></i> Markdown Builder</a></li>
+        <li><a href="../http-builder/index.html"><i class="fas fa-globe"></i> HTTP Request</a></li>
+        <li><a href="../mermaid-builder/index.html"><i class="fas fa-project-diagram"></i> Mermaid Builder</a></li>
+        <li><a href="../layout-builder/index.html"><i class="fas fa-th-large"></i> Layout Builder</a></li>
+        <li><a href="../ui-blocks-builder/index.html"><i class="fas fa-cubes"></i> UI Blocks</a></li>
+      </ul>
+    </nav>
+    <main class="main-content">
+      <section id="html-builder" class="active">
+        <header>
+          <h1>HTML Builder</h1>
+          <p>Create semantic HTML structures.</p>
+          <div class="header-actions">
+            <button class="btn-secondary" onclick="openCheatsheet('html')"><i class="fas fa-book"></i>
+              Cheatsheet</button>
+            <button class="btn-secondary" onclick="openSnippetsModal()"><i class="fas fa-save"></i> Snippets</button>
+          </div>
+        </header>
+        <div class="workspace">
+          <div class="config-panel">
+            <div class="form-group">
+              <label>Element Type</label>
+              <select id="html-tag">
+                <option value="div">div</option>
+                <option value="section">section</option>
+                <option value="article">article</option>
+                <option value="header">header</option>
+                <option value="footer">footer</option>
+                <option value="nav">nav</option>
+                <option value="form">form</option>
+                <option value="input">input</option>
+                <option value="button">button</option>
+                <option value="table">table</option>
+                <option value="ul">ul (List)</option>
+                <option value="img">img</option>
+                <option value="a">a (Link)</option>
+                <option value="textarea">textarea</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Classes (space separated)</label>
+              <input type="text" id="html-classes" placeholder="container mt-5">
+            </div>
+            <div class="form-group">
+              <label>ID</label>
+              <input type="text" id="html-id" placeholder="main-section">
+            </div>
+            <div class="form-group">
+              <label>Content / Inner Text</label>
+              <input type="text" id="html-content" placeholder="Hello World">
+            </div>
+            <div class="form-group">
+              <label>Attributes (key="value")</label>
+              <input type="text" id="html-attrs" placeholder='data-role="admin"'>
+            </div>
+            <button class="btn-primary" onclick="generateHTML()">Generate HTML</button>
+          </div>
+          <div class="preview-panel">
+            <div class="code-header">
+              <span>HTML Output</span>
+              <button class="btn-icon" onclick="copyToClipboard('html-output')"><i class="far fa-copy"></i></button>
+            </div>
+            <textarea id="html-output" class="code-output" spellcheck="false"
+              oninput="updateHTMLLivePreview()"><!-- HTML will appear here --></textarea>
+            <div class="live-preview-container">
+              <div class="code-header"><span>Live Preview</span></div>
+              <div id="html-live-preview" class="live-preview-box"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <!-- Cheatsheet Modal -->
+  <div id="cheatsheet-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="cheatsheet-title">Cheatsheet</h2>
+        <span class="close-modal" onclick="closeCheatsheet()">&times;</span>
+      </div>
+      <div class="modal-body" id="cheatsheet-body"></div>
+    </div>
+  </div>
+  <script src="../../shared/js/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

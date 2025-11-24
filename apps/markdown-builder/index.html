@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markdown Builder - DevBuilder</title>
+  <link rel="stylesheet" href="../../shared/css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Marked Library for Markdown Parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+  <div class="app-container">
+    <nav class="sidebar">
+      <a href="../../index.html" class="logo">
+        <i class="fas fa-code"></i> DevBuilder </a>
+      <ul class="nav-links">
+        <li><a href="../php-builder/index.html"><i class="fab fa-php"></i> PHP Components</a></li>
+        <li><a href="../sql-builder/index.html"><i class="fas fa-database"></i> SQL Builder</a></li>
+        <li><a href="../js-builder/index.html"><i class="fab fa-js"></i> JS Builder</a></li>
+        <li><a href="../html-builder/index.html"><i class="fab fa-html5"></i> HTML Builder</a></li>
+        <li><a href="../css-builder/index.html"><i class="fab fa-css3-alt"></i> CSS Builder</a></li>
+        <li><a href="../json-builder/index.html"><i class="fas fa-code-branch"></i> JSON Builder</a></li>
+        <li><a href="../react-builder/index.html"><i class="fab fa-react"></i> React Builder</a></li>
+        <li><a href="../markdown-builder/index.html" class="active"><i class="fab fa-markdown"></i> Markdown Builder</a>
+        </li>
+        <li><a href="../http-builder/index.html"><i class="fas fa-globe"></i> HTTP Request</a></li>
+        <li><a href="../mermaid-builder/index.html"><i class="fas fa-project-diagram"></i> Mermaid Builder</a></li>
+        <li><a href="../layout-builder/index.html"><i class="fas fa-th-large"></i> Layout Builder</a></li>
+        <li><a href="../ui-blocks-builder/index.html"><i class="fas fa-cubes"></i> UI Blocks</a></li>
+      </ul>
+    </nav>
+    <main class="main-content">
+      <section id="markdown-builder" class="active">
+        <header>
+          <h1>Markdown Editor</h1>
+          <p>Write and preview Markdown in real-time.</p>
+          <div class="header-actions">
+            <button class="btn-secondary" onclick="openCheatsheet('markdown')"><i class="fas fa-book"></i>
+              Cheatsheet</button>
+            <button class="btn-secondary" onclick="openSnippetsModal()"><i class="fas fa-save"></i> Snippets</button>
+            <button class="btn-primary" onclick="exportHTML()"><i class="fas fa-download"></i> Export HTML</button>
+          </div>
+        </header>
+        <div class="workspace split-view">
+          <div class="editor-pane">
+            <div class="toolbar">
+              <button class="btn-icon" title="Bold" onclick="insertMarkdown('**', '**')"><i
+                  class="fas fa-bold"></i></button>
+              <button class="btn-icon" title="Italic" onclick="insertMarkdown('*', '*')"><i
+                  class="fas fa-italic"></i></button>
+              <button class="btn-icon" title="Heading" onclick="insertMarkdown('## ', '')"><i
+                  class="fas fa-heading"></i></button>
+              <button class="btn-icon" title="Link" onclick="insertMarkdown('[', '](url)')"><i
+                  class="fas fa-link"></i></button>
+              <button class="btn-icon" title="Code Block" onclick="insertMarkdown('```\n', '\n```')"><i
+                  class="fas fa-code"></i></button>
+              <button class="btn-icon" title="List" onclick="insertMarkdown('- ', '')"><i
+                  class="fas fa-list-ul"></i></button>
+            </div>
+            <textarea id="md-input" class="code-editor" placeholder="# Hello World"
+              oninput="updateMarkdownPreview()"></textarea>
+          </div>
+          <div class="preview-pane">
+            <div class="code-header"><span>Preview</span></div>
+            <div id="md-preview" class="markdown-body"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <!-- Cheatsheet Modal -->
+  <div id="cheatsheet-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="cheatsheet-title">Cheatsheet</h2>
+        <span class="close-modal" onclick="closeCheatsheet()">&times;</span>
+      </div>
+      <div class="modal-body" id="cheatsheet-body"></div>
+    </div>
+  </div>
+  <script src="../../shared/js/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

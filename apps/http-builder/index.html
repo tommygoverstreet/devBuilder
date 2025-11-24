@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTTP Request Builder - DevBuilder</title>
+  <link rel="stylesheet" href="../../shared/css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <nav class="sidebar">
+      <a href="../../index.html" class="logo">
+        <i class="fas fa-code"></i> DevBuilder </a>
+      <ul class="nav-links">
+        <li><a href="../php-builder/index.html"><i class="fab fa-php"></i> PHP Components</a></li>
+        <li><a href="../sql-builder/index.html"><i class="fas fa-database"></i> SQL Builder</a></li>
+        <li><a href="../js-builder/index.html"><i class="fab fa-js"></i> JS Builder</a></li>
+        <li><a href="../html-builder/index.html"><i class="fab fa-html5"></i> HTML Builder</a></li>
+        <li><a href="../css-builder/index.html"><i class="fab fa-css3-alt"></i> CSS Builder</a></li>
+        <li><a href="../json-builder/index.html"><i class="fas fa-code-branch"></i> JSON Builder</a></li>
+        <li><a href="../react-builder/index.html"><i class="fab fa-react"></i> React Builder</a></li>
+        <li><a href="../markdown-builder/index.html"><i class="fab fa-markdown"></i> Markdown Builder</a></li>
+        <li><a href="../http-builder/index.html" class="active"><i class="fas fa-globe"></i> HTTP Request</a></li>
+        <li><a href="../mermaid-builder/index.html"><i class="fas fa-project-diagram"></i> Mermaid Builder</a></li>
+        <li><a href="../layout-builder/index.html"><i class="fas fa-th-large"></i> Layout Builder</a></li>
+        <li><a href="../ui-blocks-builder/index.html"><i class="fas fa-cubes"></i> UI Blocks</a></li>
+      </ul>
+    </nav>
+    <main class="main-content">
+      <section id="http-builder" class="active">
+        <header>
+          <h1>HTTP Request Tester</h1>
+          <p>Test API endpoints directly.</p>
+          <div class="header-actions">
+            <button class="btn-secondary" onclick="openCheatsheet('http')"><i class="fas fa-book"></i>
+              Cheatsheet</button>
+            <button class="btn-secondary" onclick="openSnippetsModal()"><i class="fas fa-save"></i> Snippets</button>
+          </div>
+        </header>
+        <div class="workspace">
+          <div class="config-panel full-width">
+            <div class="http-controls">
+              <select id="http-method" class="method-select">
+                <option value="GET">GET</option>
+                <option value="POST">POST</option>
+                <option value="PUT">PUT</option>
+                <option value="DELETE">DELETE</option>
+              </select>
+              <input type="text" id="http-url" class="url-input" placeholder="https://api.example.com/users">
+              <button class="btn-primary" onclick="sendRequest()">Send</button>
+            </div>
+            <div class="tabs">
+              <button class="tab-btn active" onclick="switchTab('headers')">Headers</button>
+              <button class="tab-btn" onclick="switchTab('body')">Body (JSON)</button>
+              <button class="tab-btn" onclick="switchTab('auth')">Auth</button>
+            </div>
+            <div id="tab-headers" class="tab-content active">
+              <textarea id="http-headers" class="code-editor small"
+                placeholder='{"Content-Type": "application/json"}'></textarea>
+            </div>
+            <div id="tab-body" class="tab-content">
+              <textarea id="http-body" class="code-editor small" placeholder='{"key": "value"}'></textarea>
+            </div>
+            <div id="tab-auth" class="tab-content">
+              <div class="form-group">
+                <label>Bearer Token</label>
+                <input type="text" id="http-token" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                  oninput="updateAuthHeader()">
+              </div>
+            </div>
+            <div class="response-area">
+              <div class="code-header">
+                <span>Response</span>
+                <span id="http-status" class="status-badge"></span>
+              </div>
+              <textarea id="http-response" class="code-output" readonly></textarea>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="../../shared/js/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

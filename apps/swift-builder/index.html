@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swift Code Builder - DevBuilder</title>
+  <link rel="stylesheet" href="../../shared/css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <nav class="sidebar">
+      <a href="../../index.html" class="logo">
+        <i class="fas fa-code"></i> DevBuilder </a>
+      <ul class="nav-links">
+        <li><a href="../php-builder/index.html"><i class="fab fa-php"></i> PHP Components</a></li>
+        <li><a href="../sql-builder/index.html"><i class="fas fa-database"></i> SQL Builder</a></li>
+        <li><a href="../js-builder/index.html"><i class="fab fa-js"></i> JS Builder</a></li>
+        <li><a href="../html-builder/index.html"><i class="fab fa-html5"></i> HTML Builder</a></li>
+        <li><a href="../css-builder/index.html"><i class="fab fa-css3-alt"></i> CSS Builder</a></li>
+        <li><a href="../json-builder/index.html"><i class="fas fa-code-branch"></i> JSON Builder</a></li>
+        <li><a href="../react-builder/index.html"><i class="fab fa-react"></i> React Builder</a></li>
+        <li><a href="../markdown-builder/index.html"><i class="fab fa-markdown"></i> Markdown Builder</a></li>
+        <li><a href="../http-builder/index.html"><i class="fas fa-globe"></i> HTTP Request</a></li>
+        <li><a href="../mermaid-builder/index.html"><i class="fas fa-project-diagram"></i> Mermaid Builder</a></li>
+        <li><a href="../layout-builder/index.html"><i class="fas fa-th-large"></i> Layout Builder</a></li>
+        <li><a href="../ui-blocks-builder/index.html"><i class="fas fa-cubes"></i> UI Blocks</a></li>
+        <li><a href="../swift-builder/index.html" class="active"><i class="fab fa-swift"></i> Swift Builder</a></li>
+      </ul>
+    </nav>
+    <main class="main-content">
+      <section id="swift-builder" class="active">
+        <header>
+          <h1>Swift Code Builder</h1>
+          <p>Generate SwiftUI views, data models, and networking code for iOS apps.</p>
+          <div class="header-actions">
+            <button class="btn-secondary" onclick="openCheatsheet('swift')"><i class="fas fa-book"></i>
+              Cheatsheet</button>
+            <button class="btn-secondary" onclick="openSnippetsModal()"><i class="fas fa-save"></i> Snippets</button>
+          </div>
+        </header>
+        <div class="workspace">
+          <div class="config-panel">
+            <h3>Category</h3>
+            <div class="swift-options">
+              <div class="swift-option-card active" id="opt-view" onclick="selectCategory('view')">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Views</span>
+              </div>
+              <div class="swift-option-card" id="opt-layout" onclick="selectCategory('layout')">
+                <i class="fas fa-layer-group"></i>
+                <span>Layout</span>
+              </div>
+              <div class="swift-option-card" id="opt-data" onclick="selectCategory('data')">
+                <i class="fas fa-database"></i>
+                <span>Data</span>
+              </div>
+              <div class="swift-option-card" id="opt-network" onclick="selectCategory('network')">
+                <i class="fas fa-cloud"></i>
+                <span>Network</span>
+              </div>
+              <div class="swift-option-card" id="opt-structure" onclick="selectCategory('structure')">
+                <i class="fas fa-sitemap"></i>
+                <span>Structure</span>
+              </div>
+            </div>
+            <h3>Component Type</h3>
+            <div id="sub-options" class="radio-group" style="margin-bottom: 20px; flex-wrap: wrap;">
+              <!-- Populated by JS -->
+            </div>
+            <h3>Configuration</h3>
+            <div id="input-fields">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+          <div class="preview-panel">
+            <div class="code-header">
+              <span>Swift Output</span>
+              <button class="btn-icon" onclick="copyToClipboard('swift-output')"><i class="far fa-copy"></i></button>
+            </div>
+            <textarea id="swift-output" class="code-output"
+              spellcheck="false">// Swift code will appear here...</textarea>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <!-- Cheatsheet Modal -->
+  <div id="cheatsheet-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="cheatsheet-title">Cheatsheet</h2>
+        <span class="close-modal" onclick="closeCheatsheet()">&times;</span>
+      </div>
+      <div class="modal-body" id="cheatsheet-body"></div>
+    </div>
+  </div>
+  <script src="../../shared/js/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

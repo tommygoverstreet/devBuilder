@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Builder - DevBuilder</title>
+  <link rel="stylesheet" href="../../shared/css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <nav class="sidebar">
+      <a href="../../index.html" class="logo">
+        <i class="fas fa-code"></i> DevBuilder </a>
+      <ul class="nav-links">
+        <li><a href="../php-builder/index.html"><i class="fab fa-php"></i> PHP Components</a></li>
+        <li><a href="../sql-builder/index.html"><i class="fas fa-database"></i> SQL Builder</a></li>
+        <li><a href="../js-builder/index.html"><i class="fab fa-js"></i> JS Builder</a></li>
+        <li><a href="../html-builder/index.html"><i class="fab fa-html5"></i> HTML Builder</a></li>
+        <li><a href="../css-builder/index.html"><i class="fab fa-css3-alt"></i> CSS Builder</a></li>
+        <li><a href="../json-builder/index.html"><i class="fas fa-code-branch"></i> JSON Builder</a></li>
+        <li><a href="../react-builder/index.html" class="active"><i class="fab fa-react"></i> React Builder</a></li>
+        <li><a href="../markdown-builder/index.html"><i class="fab fa-markdown"></i> Markdown Builder</a></li>
+        <li><a href="../http-builder/index.html"><i class="fas fa-globe"></i> HTTP Request</a></li>
+        <li><a href="../mermaid-builder/index.html"><i class="fas fa-project-diagram"></i> Mermaid Builder</a></li>
+        <li><a href="../layout-builder/index.html"><i class="fas fa-th-large"></i> Layout Builder</a></li>
+        <li><a href="../ui-blocks-builder/index.html"><i class="fas fa-cubes"></i> UI Blocks</a></li>
+      </ul>
+    </nav>
+    <main class="main-content">
+      <section id="react-builder" class="active">
+        <header>
+          <h1>React Component Builder</h1>
+          <p>Scaffold React components with hooks.</p>
+          <div class="header-actions">
+            <button class="btn-secondary" onclick="openCheatsheet('react')"><i class="fas fa-book"></i>
+              Cheatsheet</button>
+            <button class="btn-secondary" onclick="openSnippetsModal()"><i class="fas fa-save"></i> Snippets</button>
+          </div>
+        </header>
+        <div class="workspace">
+          <div class="config-panel">
+            <div class="form-group">
+              <label>Component Name</label>
+              <input type="text" id="react-name" placeholder="MyComponent">
+            </div>
+            <div class="form-group">
+              <label>Type</label>
+              <select id="react-type">
+                <option value="functional">Functional Component</option>
+                <option value="arrow">Arrow Function Component</option>
+                <option value="class">Class Component</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Props (comma separated)</label>
+              <input type="text" id="react-props" placeholder="title, isVisible">
+            </div>
+            <div class="form-group">
+              <label>Hooks</label>
+              <div class="checkbox-group">
+                <label><input type="checkbox" id="react-usestate"> useState</label>
+                <label><input type="checkbox" id="react-useeffect"> useEffect</label>
+                <label><input type="checkbox" id="react-useref"> useRef</label>
+                <label><input type="checkbox" id="react-usecontext"> useContext</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Options</label>
+              <div class="checkbox-group">
+                <label><input type="checkbox" id="react-ts"> TypeScript Interface</label>
+                <label><input type="checkbox" id="react-export-default" checked> Export Default</label>
+              </div>
+            </div>
+            <button class="btn-primary" onclick="generateReact()">Generate Component</button>
+          </div>
+          <div class="preview-panel">
+            <div class="code-header">
+              <span>React Output</span>
+              <button class="btn-icon" onclick="copyToClipboard('react-output')"><i class="far fa-copy"></i></button>
+            </div>
+            <textarea id="react-output" class="code-output"
+              spellcheck="false">// React code will appear here...</textarea>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <!-- Cheatsheet Modal -->
+  <div id="cheatsheet-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="cheatsheet-title">Cheatsheet</h2>
+        <span class="close-modal" onclick="closeCheatsheet()">&times;</span>
+      </div>
+      <div class="modal-body" id="cheatsheet-body"></div>
+    </div>
+  </div>
+  <script src="../../shared/js/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Page Generator - DevBuilder</title>
+  <link rel="stylesheet" href="../../shared/css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <nav class="sidebar">
+      <a href="../../index.html" class="logo">
+        <i class="fas fa-code"></i> DevBuilder </a>
+      <ul class="nav-links">
+        <!-- Links will be populated by utils.js -->
+      </ul>
+    </nav>
+    <main class="main-content">
+      <section id="site-builder" class="active">
+        <header>
+          <h1>Site Page Generator</h1>
+          <p>Assemble full HTML pages from pre-built sections.</p>
+          <div class="header-actions">
+            <button class="btn-secondary" onclick="openCheatsheet('html')"><i class="fas fa-book"></i>
+              Cheatsheet</button>
+            <button class="btn-secondary" onclick="openSnippetsModal()"><i class="fas fa-save"></i> Snippets</button>
+          </div>
+        </header>
+        <div class="workspace">
+          <div class="config-panel">
+            <h3>Page Configuration</h3>
+            <div class="form-group">
+              <label>Page Title</label>
+              <input type="text" id="page-title" value="My Awesome Site" oninput="updatePreview()">
+            </div>
+            <div class="form-group">
+              <label>Theme</label>
+              <select id="page-theme" onchange="updatePreview()">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+                <option value="blue">Corporate Blue</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Navigation</label>
+              <select id="nav-style" onchange="updatePreview()">
+                <option value="simple">Simple (Logo + Links)</option>
+                <option value="centered">Centered</option>
+                <option value="search">With Search Bar</option>
+                <option value="none">None</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Sections (Check to include)</label>
+              <div class="checkbox-group">
+                <label><input type="checkbox" id="section-hero" checked onchange="updatePreview()"> Hero Section</label>
+                <label><input type="checkbox" id="section-features" checked onchange="updatePreview()"> Features
+                  Grid</label>
+                <label><input type="checkbox" id="section-about" onchange="updatePreview()"> About Us</label>
+                <label><input type="checkbox" id="section-pricing" onchange="updatePreview()"> Pricing Table</label>
+                <label><input type="checkbox" id="section-testimonials" onchange="updatePreview()"> Testimonials</label>
+                <label><input type="checkbox" id="section-contact" checked onchange="updatePreview()"> Contact
+                  Form</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Footer</label>
+              <select id="footer-style" onchange="updatePreview()">
+                <option value="simple">Simple Copyright</option>
+                <option value="columns">Multi-column Links</option>
+                <option value="none">None</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <button class="btn-primary" onclick="downloadPage()"><i class="fas fa-download"></i> Download
+                HTML</button>
+            </div>
+          </div>
+          <div class="preview-panel">
+            <div class="tabs">
+              <button class="tab-btn active" onclick="switchTab('preview')">Visual Preview</button>
+              <button class="tab-btn" onclick="switchTab('code')">HTML Code</button>
+            </div>
+            <div id="tab-preview" class="tab-content active">
+              <iframe id="preview-frame" title="Page Preview"></iframe>
+            </div>
+            <div id="tab-code" class="tab-content">
+              <div class="code-header">
+                <span>index.html</span>
+                <button class="btn-icon" onclick="copyToClipboard('code-output')"><i class="far fa-copy"></i></button>
+              </div>
+              <textarea id="code-output" class="code-output" spellcheck="false" readonly></textarea>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="../../shared/js/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,250 @@
+/* UI Blocks Builder Specific Styles */
+.blocks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.ui-block-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.block-preview {
+  padding: 2rem;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.block-actions {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card-bg);
+}
+
+.btn-sm {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+/* Demo Styles */
+.card-demo {
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 200px;
+  color: #333;
+}
+
+.card-demo h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.card-demo p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.card-demo button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.nav-demo {
+  background: #333;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.nav-demo a {
+  color: #ccc;
+  text-decoration: none;
+  margin-left: 10px;
+  font-size: 0.9rem;
+}
+
+.alert-demo {
+  background: #d4edda;
+  color: #155724;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.btn-group-demo {
+  display: flex;
+}
+
+.btn-group-demo button {
+  background: #6c757d;
+  color: #fff;
+  border: 1px solid #6c757d;
+  padding: 0.375rem 0.75rem;
+  cursor: pointer;
+}
+
+.btn-group-demo button:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.btn-group-demo button:last-child {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+/* New Demo Styles */
+.input-demo {
+  width: 100%;
+  max-width: 250px;
+}
+
+.input-demo label {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+  color: #555;
+}
+
+.input-demo input {
+  width: 100%;
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.hero-demo {
+  text-align: center;
+  background: #e9ecef;
+  padding: 1.5rem;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.hero-demo h4 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+}
+
+.hero-demo button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+
+.features-demo {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.features-demo div {
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.pricing-demo {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.pricing-demo .p-card {
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.pricing-demo .p-card.active {
+  border-color: #007bff;
+  transform: scale(1.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: #007bff;
+  font-weight: bold;
+}
+
+.contact-demo {
+  width: 100%;
+  max-width: 200px;
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid #eee;
+}
+
+.contact-demo .line {
+  height: 8px;
+  background: #f0f0f0;
+  margin-bottom: 8px;
+  border-radius: 2px;
+}
+
+.contact-demo button {
+  width: 100%;
+  background: #007bff;
+  color: white;
+  border: none;
+  height: 20px;
+  border-radius: 2px;
+  margin-top: 5px;
+}
+
+.footer-demo {
+  width: 100%;
+  background: #333;
+  padding: 1rem;
+  border-radius: 3px;
+  color: #777;
+}
+
+.footer-demo .f-row {
+  height: 5px;
+  background: #555;
+  margin-bottom: 10px;
+  width: 60%;
+}
+
+.footer-demo .f-copy {
+  font-size: 0.7rem;
+  text-align: center;
+}

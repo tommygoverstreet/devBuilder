@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQL Builder - DevBuilder</title>
+  <link rel="stylesheet" href="../../shared/css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <nav class="sidebar">
+      <a href="../../index.html" class="logo">
+        <i class="fas fa-code"></i> DevBuilder </a>
+      <ul class="nav-links">
+        <li><a href="../php-builder/index.html"><i class="fab fa-php"></i> PHP Components</a></li>
+        <li><a href="../sql-builder/index.html" class="active"><i class="fas fa-database"></i> SQL Builder</a></li>
+        <li><a href="../js-builder/index.html"><i class="fab fa-js"></i> JS Builder</a></li>
+        <li><a href="../html-builder/index.html"><i class="fab fa-html5"></i> HTML Builder</a></li>
+        <li><a href="../css-builder/index.html"><i class="fab fa-css3-alt"></i> CSS Builder</a></li>
+        <li><a href="../json-builder/index.html"><i class="fas fa-code-branch"></i> JSON Builder</a></li>
+        <li><a href="../react-builder/index.html"><i class="fab fa-react"></i> React Builder</a></li>
+        <li><a href="../markdown-builder/index.html"><i class="fab fa-markdown"></i> Markdown Builder</a></li>
+        <li><a href="../http-builder/index.html"><i class="fas fa-globe"></i> HTTP Request</a></li>
+        <li><a href="../mermaid-builder/index.html"><i class="fas fa-project-diagram"></i> Mermaid Builder</a></li>
+        <li><a href="../layout-builder/index.html"><i class="fas fa-th-large"></i> Layout Builder</a></li>
+        <li><a href="../ui-blocks-builder/index.html"><i class="fas fa-cubes"></i> UI Blocks</a></li>
+      </ul>
+    </nav>
+    <main class="main-content">
+      <section id="sql-builder" class="active">
+        <header>
+          <h1>Visual SQL Builder</h1>
+          <p>Construct complex SQL queries without writing code.</p>
+          <div class="header-actions">
+            <button class="btn-secondary" onclick="openCheatsheet('sql')"><i class="fas fa-book"></i>
+              Cheatsheet</button>
+            <button class="btn-secondary" onclick="openSnippetsModal()"><i class="fas fa-save"></i> Snippets</button>
+          </div>
+        </header>
+        <div class="workspace">
+          <div class="config-panel">
+            <div class="form-group">
+              <label>Operation</label>
+              <div class="radio-group">
+                <label><input type="radio" name="sql-op" value="SELECT" checked> SELECT</label>
+                <label><input type="radio" name="sql-op" value="INSERT"> INSERT</label>
+                <label><input type="radio" name="sql-op" value="UPDATE"> UPDATE</label>
+                <label><input type="radio" name="sql-op" value="DELETE"> DELETE</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Table Name</label>
+              <input type="text" id="sql-table" placeholder="users">
+            </div>
+            <div class="form-group" id="sql-columns-group">
+              <label>Columns (comma separated)</label>
+              <input type="text" id="sql-columns" placeholder="id, name, email" value="*">
+            </div>
+            <div class="form-group" id="sql-join-group">
+              <label>Join (Optional)</label>
+              <div class="condition-builder">
+                <select id="sql-join-type">
+                  <option value="">None</option>
+                  <option value="INNER JOIN">INNER JOIN</option>
+                  <option value="LEFT JOIN">LEFT JOIN</option>
+                  <option value="RIGHT JOIN">RIGHT JOIN</option>
+                </select>
+                <input type="text" id="sql-join-table" placeholder="Table">
+                <input type="text" id="sql-join-on" placeholder="t1.id = t2.ref_id">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Conditions (WHERE)</label>
+              <div class="condition-builder">
+                <input type="text" id="sql-where-col" placeholder="Column">
+                <select id="sql-where-op">
+                  <option value="=">=</option>
+                  <option value=">">></option>
+                  <option value="<">
+                    << /option>
+                  <option value="LIKE">LIKE</option>
+                </select>
+                <input type="text" id="sql-where-val" placeholder="Value">
+              </div>
+            </div>
+            <button class="btn-primary" onclick="generateSQL()">Build Query</button>
+          </div>
+          <div class="preview-panel">
+            <div class="code-header">
+              <span>SQL Output</span>
+              <button class="btn-icon" onclick="copyToClipboard('sql-output')"><i class="far fa-copy"></i></button>
+            </div>
+            <textarea id="sql-output" class="code-output" spellcheck="false">-- SQL query will appear here...</textarea>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <!-- Cheatsheet Modal -->
+  <div id="cheatsheet-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="cheatsheet-title">Cheatsheet</h2>
+        <span class="close-modal" onclick="closeCheatsheet()">&times;</span>
+      </div>
+      <div class="modal-body" id="cheatsheet-body"></div>
+    </div>
+  </div>
+  <script src="../../shared/js/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

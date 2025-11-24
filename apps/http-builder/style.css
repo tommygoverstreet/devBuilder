@@ -1,0 +1,101 @@
+/* HTTP Builder Specific Styles */
+.full-width {
+    width: 100%;
+    max-width: 100%;
+}
+
+.http-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+/* Override shared styles */
+.http-controls .method-select {
+    width: 120px;
+    background: var(--bg-dark);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    height: 42px;
+    padding: 0 10px;
+}
+
+.http-controls .url-input {
+    flex: 1;
+    background: var(--bg-dark);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    height: 42px;
+    width: auto;
+    /* Override shared width: 100% */
+    padding: 0 15px;
+}
+
+.http-controls .btn-primary {
+    width: auto;
+    margin-top: 0;
+    height: 42px;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid transparent;
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.code-editor.small {
+    height: 150px;
+}
+
+.response-area {
+    margin-top: 1rem;
+}
+
+.status-badge {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius);
+}
+
+/* Mobile Responsiveness for HTTP Controls */
+@media (max-width: 600px) {
+    .http-controls {
+        flex-wrap: wrap;
+    }
+
+    .http-controls .method-select,
+    .http-controls .url-input,
+    .http-controls .btn-primary {
+        width: 100%;
+        flex: none;
+    }
+}

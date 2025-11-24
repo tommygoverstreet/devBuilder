@@ -1,0 +1,44 @@
+/* Swift Builder Specific Styles */
+.swift-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.swift-option-card {
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.swift-option-card:hover,
+.swift-option-card.active {
+  border-color: var(--primary);
+  background: rgba(122, 162, 247, 0.1);
+}
+
+.swift-option-card i {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--secondary);
+}
+
+.swift-option-card span {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.params-container {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.params-container.active {
+  display: block;
+}

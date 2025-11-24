@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Palette Generator - DevBuilder</title>
+  <link rel="stylesheet" href="../../shared/css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <nav class="sidebar">
+      <a href="../../index.html" class="logo">
+        <i class="fas fa-code"></i> DevBuilder </a>
+      <ul class="nav-links">
+        <!-- Links will be populated by utils.js -->
+      </ul>
+    </nav>
+    <main class="main-content">
+      <section id="color-palette-builder" class="active">
+        <header>
+          <h1>Color Palette Generator</h1>
+          <p>Create harmonious color schemes and export to CSS.</p>
+          <div class="header-actions">
+            <button class="btn-secondary" onclick="openCheatsheet('colors')"><i class="fas fa-book"></i>
+              Cheatsheet</button>
+            <button class="btn-secondary" onclick="openSnippetsModal()"><i class="fas fa-save"></i> Snippets</button>
+          </div>
+        </header>
+        <div class="workspace">
+          <div class="config-panel">
+            <h3>Configuration</h3>
+            <div class="form-group">
+              <label>Base Color</label>
+              <div class="color-input-wrapper">
+                <input type="color" id="base-color" value="#3498db" oninput="updatePalette()">
+                <input type="text" id="base-color-hex" value="#3498db" onchange="updateBaseColorFromHex()">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Harmony Rule</label>
+              <select id="harmony-rule" onchange="updatePalette()">
+                <option value="monochromatic">Monochromatic</option>
+                <option value="analogous">Analogous</option>
+                <option value="complementary">Complementary</option>
+                <option value="split-complementary">Split Complementary</option>
+                <option value="triadic">Triadic</option>
+                <option value="tetradic">Tetradic</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <button class="btn-primary" onclick="randomizePalette()"><i class="fas fa-random"></i> Randomize</button>
+            </div>
+          </div>
+          <div class="preview-panel">
+            <div class="palette-display" id="palette-display">
+              <!-- Swatches generated here -->
+            </div>
+            <div class="code-header">
+              <span>CSS Output</span>
+              <button class="btn-icon" onclick="copyToClipboard('css-output')"><i class="far fa-copy"></i></button>
+            </div>
+            <textarea id="css-output" class="code-output" spellcheck="false"></textarea>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="../../shared/js/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
